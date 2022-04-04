@@ -20,9 +20,9 @@ EOF
   tags = merge({
     Name = "${local.resource_prefix.value}-ec2"
     }, {
-    git_commit           = "N/A"
+    git_commit           = "2f3136f98bda5a6599656436b4dae9b9ab99a1fa"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:27:54"
+    git_last_modified_at = "2022-04-04 19:30:53"
     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
     git_modifiers        = "97243784+mouth-calcite"
     git_org              = "SizableDeMerit"
