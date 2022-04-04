@@ -30,6 +30,8 @@ EOF
     yor_trace = "347af3cd-4f70-4632-aca3-4d5e30ffc0b6"
     }, {
     "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
+    }, {
+    "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
   })
   monitoring    = true
   ebs_optimized = true
@@ -55,6 +57,9 @@ resource "aws_ebs_volume" "web_host_storage" {
   #   yor_trace            = "c5509daf-10f0-46af-9e03-41989212521d"
   # })
   encrypted = true
+  tags = {
+    yor_trace = "c353f9ea-c4ec-4a86-baa5-e4a7395421e7"
+  }
 }
 
 
