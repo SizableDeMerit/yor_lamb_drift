@@ -43,11 +43,11 @@ resource "aws_ebs_volume" "web_host_storage" {
   tags = merge({
     Name = "${local.resource_prefix.value}-ebs"
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "0136f1201818517f80cfbd61842adde7127ce655"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-04 19:52:37"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c5509daf-10f0-46af-9e03-41989212521d"
