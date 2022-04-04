@@ -32,6 +32,8 @@ EOF
     "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
     }, {
     "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
+    }, {
+    "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
   })
   monitoring    = true
   ebs_optimized = true
@@ -47,7 +49,14 @@ resource "aws_ebs_volume" "web_host_storage" {
 
   encrypted = true
   tags = {
-    yor_trace = "77594094-7748-4832-a133-f11d446a6bb0"
+    yor_trace            = "77594094-7748-4832-a133-f11d446a6bb0"
+    git_commit           = "e27b3a95d72a16b9d1e487f08629cfc996273652"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 20:08:56"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
   }
 }
 
