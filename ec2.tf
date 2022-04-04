@@ -20,9 +20,9 @@ EOF
   tags = merge({
     Name = "${local.resource_prefix.value}-ec2"
     }, {
-    git_commit           = "2f3136f98bda5a6599656436b4dae9b9ab99a1fa"
+    git_commit           = "N/A"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:30:53"
+    git_last_modified_at = "2022-04-04 19:27:54"
     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
     git_modifiers        = "97243784+mouth-calcite"
     git_org              = "SizableDeMerit"
@@ -52,7 +52,9 @@ resource "aws_ebs_volume" "web_host_storage" {
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c5509daf-10f0-46af-9e03-41989212521d"
   })
+  encrypted = true
 }
+
 
 resource "aws_ebs_snapshot" "example_snapshot" {
   # ebs snapshot without encryption
