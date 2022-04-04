@@ -25,9 +25,11 @@ EOF
     git_last_modified_at = "2022-04-04 19:27:54"
     #git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
     #git_modifiers        = "97243784+mouth-calcite"
-    git_org              = "SizableDeMerit"
-    git_repo             = "yor_lamb_drift"
-    yor_trace            = "347af3cd-4f70-4632-aca3-4d5e30ffc0b6"
+    git_org   = "SizableDeMerit"
+    git_repo  = "yor_lamb_drift"
+    yor_trace = "347af3cd-4f70-4632-aca3-4d5e30ffc0b6"
+    }, {
+    "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
   })
   monitoring    = true
   ebs_optimized = true
