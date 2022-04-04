@@ -30,6 +30,8 @@ EOF
     yor_trace = "347af3cd-4f70-4632-aca3-4d5e30ffc0b6"
     }, {
     "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
+    }, {
+    "#git_last_modified_by = \"97243784+mouth-calcite@users.noreply.github.com\"\n    #git_modifiers        = \"97243784+mouth-calcite\"\n    git_org" = "SizableDeMerit"
   })
   monitoring    = true
   ebs_optimized = true
@@ -42,19 +44,11 @@ resource "aws_ebs_volume" "web_host_storage" {
   availability_zone = "${var.region}a"
   #encrypted         = false  # Setting this causes the volume to be recreated on apply 
   size = 1
-  # tags = merge({
-  #   Name = "${local.resource_prefix.value}-ebs"
-  #   }, {
-  #   git_commit           = "0136f1201818517f80cfbd61842adde7127ce655"
-  #   git_file             = "ec2.tf"
-  #   git_last_modified_at = "2022-04-04 19:52:37"
-  #   git_last_modified_by = "sized-demerit-0u@icloud.com"
-  #   git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
-  #   git_org              = "SizableDeMerit"
-  #   git_repo             = "yor_lamb_drift"
-  #   yor_trace            = "c5509daf-10f0-46af-9e03-41989212521d"
-  # })
+
   encrypted = true
+  tags = {
+    yor_trace = "77594094-7748-4832-a133-f11d446a6bb0"
+  }
 }
 
 
