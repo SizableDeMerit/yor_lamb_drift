@@ -7,7 +7,7 @@
 # The following config gives the default security group the same rules that AWS provides by default but under 
 # management by Terraform. This means that any ingress or egress rules added or changed will be detected as drift.
 
-resource "awxs_vpc" "mainvpc" {
+resource "aws_vpc" "mainvpc" {
   # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
   # and again
   cidr_block = "10.1.0.0/16"

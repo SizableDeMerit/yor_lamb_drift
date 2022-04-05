@@ -23,13 +23,13 @@ provider "aws" {
 #   }
 # }
 
-terraform {
-  #required_version = "1.1.2"
-  required_providers {
-    aws = {
-      source  = "hashicorp/awxs"
-      version = "4.8.0"
-    }
-  }
-}
+# terraform {
+#   #required_version = "1.1.2"
+#   required_providers {
+#     aws = {
+#       source  = "hashicorp/awxs"
+#       version = "4.8.0"
+#     }
+#   }
+# }
 
