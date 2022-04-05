@@ -35,7 +35,7 @@ resource "aws_default_security_group" "default" {
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 15:05:30"
     git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
-    git_modifiers        = "102994153+SizableDeMerit"
+    git_modifiers        = "102994153+SizableDeMerit/97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "8d4b96bd-a7ba-436b-8e8c-1bdb3cc4dbfc"
