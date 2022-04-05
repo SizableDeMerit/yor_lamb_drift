@@ -9,8 +9,6 @@
 
 resource "awxs_vpc" "mainvpc" {
   # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
-  # TEST TEST TEST 
-  # TEST TEST TEST 
 
   cidr_block = "10.1.0.0/16"
 }
