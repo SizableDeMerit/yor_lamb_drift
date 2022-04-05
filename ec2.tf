@@ -8,12 +8,12 @@
 # management by Terraform. This means that any ingress or egress rules added or changed will be detected as drift.
 
 resource "awxs_vpc" "mainvpc" {
-	# checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
+  # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
   cidr_block = "10.1.0.0/16"
 }
 
 resource "aws_default_security_group" "default" {
-# checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
+  # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
   vpc_id = aws_vpc.mainvpc.id
 
   ingress {
@@ -29,6 +29,16 @@ resource "aws_default_security_group" "default" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  tags = {
+    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-05 15:05:30"
+    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
+    git_modifiers        = "102994153+SizableDeMerit"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "8d4b96bd-a7ba-436b-8e8c-1bdb3cc4dbfc"
+  }
 }
 
 
@@ -37,13 +47,33 @@ resource "aws_flow_log" "example" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.example.id
+  tags = {
+    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-05 15:05:30"
+    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
+    git_modifiers        = "102994153+SizableDeMerit"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "c26b7257-d7b4-4288-915d-1987711721a3"
+  }
 }
 
 resource "aws_cloudwatch_log_group" "example" {
-	# checkov:skip=BC_AWS_LOGGING_13: ENSURE CLOUD WATCH LOG GROUP SPECIFIES RETENTION DAYS
-	# checkov:skip=BC_AWS_GENERAL_85: ENSURE CLOUD WATCH IS ENCRYPTED BY KMS 
-  name = "example"
+  # checkov:skip=BC_AWS_LOGGING_13: ENSURE CLOUD WATCH LOG GROUP SPECIFIES RETENTION DAYS
+  # checkov:skip=BC_AWS_GENERAL_85: ENSURE CLOUD WATCH IS ENCRYPTED BY KMS 
+  name              = "example"
   retention_in_days = 90
+  tags = {
+    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-05 15:05:30"
+    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
+    git_modifiers        = "102994153+SizableDeMerit"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "340e0bcc-464f-41b7-9cee-aab589091cde"
+  }
 }
 
 resource "aws_iam_role" "example" {
@@ -64,6 +94,16 @@ resource "aws_iam_role" "example" {
   ]
 }
 EOF
+  tags = {
+    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-05 15:05:30"
+    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
+    git_modifiers        = "102994153+SizableDeMerit/97243784+mouth-calcite"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "e6cb8435-1183-44d6-aaf7-01a8786bbde6"
+  }
 }
 
 resource "aws_iam_role_policy" "example" {
