@@ -11,6 +11,16 @@ resource "aws_vpc" "mainvpc" {
   # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
   # and again
   cidr_block = "10.1.0.0/16"
+  tags = {
+    git_commit           = "55320aa2a5edff0aa8e18b0f749d0c18ba3d1fa1"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-05 20:20:06"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "cd30b5ba-0c51-4ff8-9439-c40b57549179"
+  }
 }
 
 resource "aws_default_security_group" "default" {
