@@ -1,7 +1,7 @@
 
 provider "aws" {
-  profile = var.profile
-  region  = var.region
+  #profile = var.profile
+  region  = "us-east-1"
 }
 # provider "awxs" {
 #   # profile = var.profile
