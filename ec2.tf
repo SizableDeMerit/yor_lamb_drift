@@ -59,11 +59,11 @@ resource "aws_flow_log" "example" {
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.mainvpc.id
   tags = {
-    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    git_commit           = "742bc0c9e5d95d29390e58bd9b6b90c77f93e9ca"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-05 15:05:30"
-    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
-    git_modifiers        = "102994153+SizableDeMerit"
+    git_last_modified_at = "2022-04-05 20:33:01"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c26b7257-d7b4-4288-915d-1987711721a3"
