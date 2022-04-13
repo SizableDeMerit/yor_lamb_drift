@@ -148,23 +148,23 @@ EOF
 
 
 resource "aws_instance" "web_host" {
-	# checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
+  # checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
   instance_type = "t2.nano"
   root_block_device {
-   encrypted     = true
+    encrypted = true
   }
 
   metadata_options {
-        http_endpoint = "enabled"
-        http_tokens   = "required"
+    http_endpoint = "enabled"
+    http_tokens   = "required"
   }
 
   vpc_security_group_ids = [
   "${aws_security_group.web-node.id}"]
-  subnet_id     = "${aws_subnet.web_subnet.id}"
-  user_data     = <<EOF
+  subnet_id = "${aws_subnet.web_subnet.id}"
+  user_data = <<EOF
 #! /bin/bash
 sudo apt-get update
 sudo apt-get inst
@@ -176,15 +176,15 @@ export AWS_SECRET_ACCESS_KEY=REMOVED
 export AWS_DEFAULT_REGION=us-west-2
 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
 EOF
-  
+
   monitoring    = true
   ebs_optimized = true
   tags = {
-    git_commit           = "2f3136f98bda5a6599656436b4dae9b9ab99a1fa"
+    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:30:53"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "ee37c4ed-d943-446e-9f53-7022a8fd48b0"
@@ -266,11 +266,11 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "b7af1b40-64eb-4519-a1a0-ab198db4b193"
@@ -284,11 +284,11 @@ resource "aws_vpc" "web_vpc" {
   tags = merge({
     Name = "${local.resource_prefix.value}-vpc"
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "9bf2359b-952e-4570-9595-52eba4c20473"
@@ -304,11 +304,11 @@ resource "aws_subnet" "web_subnet" {
   tags = merge({
     Name = "${local.resource_prefix.value}-subnet"
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "0345f650-d280-4ca8-86c9-c71c38c0eda8"
