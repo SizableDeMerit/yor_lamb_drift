@@ -12,6 +12,7 @@ resource "aws_vpc" "mainvpc" {
   # and again
   cidr_block = "10.1.0.0/16"
   tags = {
+    Name                 = "Main VPC"
     git_commit           = "55320aa2a5edff0aa8e18b0f749d0c18ba3d1fa1"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 20:20:06"
@@ -41,7 +42,7 @@ resource "aws_default_security_group" "default" {
   #   # cidr_blocks = ["0.0.0.0/0"]
   # }
   tags = {
-    Name                 = "default security group kld"
+    Name                 = "Main VPC Default Security Group"
     git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 15:05:30"
