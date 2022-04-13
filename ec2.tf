@@ -42,11 +42,16 @@ resource "aws_default_security_group" "default" {
   #   # cidr_blocks = ["0.0.0.0/0"]
   # }
   tags = {
+<<<<<<< HEAD
     Name                 = "Main VPC Default Security Group"
     git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+=======
+    Name                 = "default security group kld"
+    git_commit           = "879a3cf8455047db023f7645c04c3e133bbbae90"
+>>>>>>> 470408e20b84d6dc54b2445dcb819ccd8620c198
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-05 15:05:30"
-    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
+    git_last_modified_at = "2022-04-13 16:22:17"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "102994153+SizableDeMerit/97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
