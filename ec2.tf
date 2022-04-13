@@ -27,7 +27,7 @@ resource "aws_vpc" "mainvpc" {
 resource "aws_default_security_group" "default" {
   # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
   vpc_id = aws_vpc.mainvpc.id
-
+  # removing rules should meet requirement
   # ingress {
   #   # protocol  = -1
   #   # self      = true
@@ -42,17 +42,12 @@ resource "aws_default_security_group" "default" {
   #   # cidr_blocks = ["0.0.0.0/0"]
   # }
   tags = {
-<<<<<<< HEAD
     Name                 = "Main VPC Default Security Group"
-    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
-=======
-    Name                 = "default security group kld"
-    git_commit           = "879a3cf8455047db023f7645c04c3e133bbbae90"
->>>>>>> 470408e20b84d6dc54b2445dcb819ccd8620c198
+    git_commit           = "bd3bbc74afd6e92e9365b705d6cb63ea1c5456df"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 16:22:17"
+    git_last_modified_at = "2022-04-13 18:39:59"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
-    git_modifiers        = "102994153+SizableDeMerit/97243784+mouth-calcite/sized-demerit-0u"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "8d4b96bd-a7ba-436b-8e8c-1bdb3cc4dbfc"
