@@ -27,20 +27,21 @@ resource "aws_default_security_group" "default" {
   # checkov:BC_AWS_NETWORKING_4: Ensure default VPC restricst all traffic 
   vpc_id = aws_vpc.mainvpc.id
 
-  ingress {
-    protocol  = -1
-    self      = true
-    from_port = 0
-    to_port   = 0
-  }
+  # ingress {
+  #   # protocol  = -1
+  #   # self      = true
+  #   # from_port = 0
+  #   # to_port   = 0
+  # }
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  # egress {
+  #   # from_port   = 0
+  #   # to_port     = 0
+  #   # protocol    = "-1"
+  #   # cidr_blocks = ["0.0.0.0/0"]
+  # }
   tags = {
+    Name                 = "default security group kld"
     git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 15:05:30"
