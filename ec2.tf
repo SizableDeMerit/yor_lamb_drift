@@ -44,11 +44,11 @@ resource "aws_default_security_group" "default" {
   # }
   tags = {
     Name                 = "Main VPC Default Security Group"
-    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    git_commit           = "bd3bbc74afd6e92e9365b705d6cb63ea1c5456df"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 16:22:17"
+    git_last_modified_at = "2022-04-13 18:39:59"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
-    git_modifiers        = "102994153+SizableDeMerit/97243784+mouth-calcite/sized-demerit-0u"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "8d4b96bd-a7ba-436b-8e8c-1bdb3cc4dbfc"
