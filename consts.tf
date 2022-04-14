@@ -30,10 +30,11 @@ locals {
 #   default = "us-west-2"
 # }
 
-# variable ami {
-#   type    = "string"
-#   default = "ami-09a5b0b7edf08843d"
-# }
+variable ami {
+  type    = string
+  #default = "ami-09a5b0b7edf08843d"
+  default = "ami-03ededff12e34e59e"
+}
 
 # variable "dbname" {
 #   type        = "string"
