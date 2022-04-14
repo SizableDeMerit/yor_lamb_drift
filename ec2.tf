@@ -181,9 +181,9 @@ EOF
   monitoring    = true
   ebs_optimized = true
   tags = {
-    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
+    git_commit           = "a700514703b4ae366ac293e65994a76589c57aaf"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_at = "2022-04-13 20:09:09"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -268,9 +268,9 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
+    git_commit           = "a700514703b4ae366ac293e65994a76589c57aaf"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_at = "2022-04-13 20:09:09"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
