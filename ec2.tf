@@ -195,48 +195,48 @@ EOF
 
 
 
-# resource "aws_ebs_volume" "web_host_storage" {
-#   # unencrypted volume
-#   availability_zone = "${var.region}a"
-#   #encrypted         = false  # Setting this causes the volume to be recreated on apply 
-#   size = 1
+resource "aws_ebs_volume" "web_host_storage" {
+  # unencrypted volume
+  availability_zone = "${var.region}a"
+  #encrypted         = false  # Setting this causes the volume to be recreated on apply 
+  size = 1
 
-#   encrypted = true
-#   tags = {
-#     yor_trace            = "77594094-7748-4832-a133-f11d446a6bb0"
-#     git_commit           = "e27b3a95d72a16b9d1e487f08629cfc996273652"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 20:08:56"
-#     git_last_modified_by = "sized-demerit-0u@icloud.com"
-#     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#   }
-# }
+  encrypted = true
+  tags = {
+    yor_trace            = "77594094-7748-4832-a133-f11d446a6bb0"
+    git_commit           = "e27b3a95d72a16b9d1e487f08629cfc996273652"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 20:08:56"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+  }
+}
 
 
-# resource "aws_ebs_snapshot" "example_snapshot" {
-#   # ebs snapshot without encryption
-#   volume_id   = "${aws_ebs_volume.web_host_storage.id}"
-#   description = "${local.resource_prefix.value}-ebs-snapshot"
-#   tags = merge({
-#     Name = "${local.resource_prefix.value}-ebs-snapshot"
-#     }, {
-#     git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 19:16:54"
-#     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-#     git_modifiers        = "97243784+mouth-calcite"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#     yor_trace            = "c1008080-ec2f-4512-a0d0-2e9330aa58f0"
-#   })
-# }
+resource "aws_ebs_snapshot" "example_snapshot" {
+  # ebs snapshot without encryption
+  volume_id   = "${aws_ebs_volume.web_host_storage.id}"
+  description = "${local.resource_prefix.value}-ebs-snapshot"
+  tags = merge({
+    Name = "${local.resource_prefix.value}-ebs-snapshot"
+    }, {
+    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 19:16:54"
+    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
+    git_modifiers        = "97243784+mouth-calcite"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "c1008080-ec2f-4512-a0d0-2e9330aa58f0"
+  })
+}
 
-# resource "aws_volume_attachment" "ebs_att" {
-#   device_name = "/dev/sdh"
-#   volume_id   = "${aws_ebs_volume.web_host_storage.id}"
-#   instance_id = "${aws_instance.web_host.id}"
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.web_host_storage.id}"
+  instance_id = "${aws_instance.web_host.id}"
 # }
 
 resource "aws_security_group" "web-node" {
