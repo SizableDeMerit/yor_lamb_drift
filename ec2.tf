@@ -13,7 +13,7 @@ resource "aws_vpc" "mainvpc" {
   # and again
   cidr_block = "10.1.0.0/16"
   tags = {
-    Name                 = "Main VPC"
+    Name                 = "For Yor Main VPC"
     git_commit           = "55320aa2a5edff0aa8e18b0f749d0c18ba3d1fa1"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 20:20:06"
@@ -61,8 +61,9 @@ resource "aws_flow_log" "example" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.mainvpc.id
-  vpd_id          = aws_vpc.web_vpc.id
+  #vpd_id          = aws_vpc.web_vpc.id
   tags = {
+    Name                = "For Yor Flow Log Example"
     git_commit           = "742bc0c9e5d95d29390e58bd9b6b90c77f93e9ca"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 20:33:01"
@@ -77,9 +78,10 @@ resource "aws_flow_log" "example" {
 resource "aws_cloudwatch_log_group" "example" {
   # checkov:skip=BC_AWS_LOGGING_13: ENSURE CLOUD WATCH LOG GROUP SPECIFIES RETENTION DAYS
   # checkov:skip=BC_AWS_GENERAL_85: ENSURE CLOUD WATCH IS ENCRYPTED BY KMS 
-  name              = "example"
+  
   retention_in_days = 90
   tags = {
+    Name                 = "For Yor Cloud Watch"
     git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 15:05:30"
@@ -92,7 +94,6 @@ resource "aws_cloudwatch_log_group" "example" {
 }
 
 resource "aws_iam_role" "example" {
-  name = "example"
 
   assume_role_policy = <<EOF
 {
@@ -110,6 +111,7 @@ resource "aws_iam_role" "example" {
 }
 EOF
   tags = {
+    Name                 = "For Yor IAM Role" 
     git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 15:05:30"
@@ -121,8 +123,7 @@ EOF
   }
 }
 
-resource "aws_iam_
-role_policy" "example" {
+resource "aws_iam_role_policy" "example" {
   name = "example"
   role = aws_iam_role.example.id
 
@@ -153,15 +154,15 @@ resource "aws_instance" "web_host" {
   # checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
-  instance_type = "t2.nano"
-  root_block_device {
-    encrypted = true
-  }
+  instance_type = "t2.micro"
+  # root_block_device {
+  #   encrypted = true
+  # }
 
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
-  }
+  # metadata_options {
+  #   http_endpoint = "enabled"
+  #   http_tokens   = "required"
+  # }
 
   vpc_security_group_ids = [
   "${aws_security_group.web-node.id}"]
@@ -179,9 +180,10 @@ export AWS_DEFAULT_REGION=us-west-2
 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
 EOF
 
-  monitoring    = true
-  ebs_optimized = true
+  # monitoring    = true
+  # ebs_optimized = true
   tags = {
+    Name                 = "For Yor - Web Host "
     git_commit           = "a700514703b4ae366ac293e65994a76589c57aaf"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-13 20:09:09"
@@ -203,6 +205,7 @@ resource "aws_ebs_volume" "web_host_storage" {
 
   encrypted = true
   tags = {
+    Name                 = "For Yor EBS Volume"
     yor_trace            = "77594094-7748-4832-a133-f11d446a6bb0"
     git_commit           = "e27b3a95d72a16b9d1e487f08629cfc996273652"
     git_file             = "ec2.tf"
@@ -237,7 +240,7 @@ resource "aws_volume_attachment" "ebs_att" {
   device_name = "/dev/sdh"
   volume_id   = "${aws_ebs_volume.web_host_storage.id}"
   instance_id = "${aws_instance.web_host.id}"
-# }
+}
 
 resource "aws_security_group" "web-node" {
   # security group is open to the world in SSH port
@@ -301,8 +304,7 @@ resource "aws_vpc" "web_vpc" {
 resource "aws_subnet" "web_subnet" {
   vpc_id                  = aws_vpc.web_vpc.id
   cidr_block              = "172.16.10.0/24"
-  availability_zone       = "${var.region}"
-  map_public_ip_on_launch = true
+  availability_zone       = "${var.region}a"
 
   tags = merge({
     Name = "${local.resource_prefix.value}-subnet"
@@ -317,6 +319,7 @@ resource "aws_subnet" "web_subnet" {
     yor_trace            = "0345f650-d280-4ca8-86c9-c71c38c0eda8"
   })
 }
+
 
 # resource "aws_subnet" "web_subnet2" {
 #   vpc_id                  = aws_vpc.web_vpc.id
