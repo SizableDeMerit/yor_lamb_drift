@@ -61,6 +61,7 @@ resource "aws_flow_log" "example" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.mainvpc.id
+  vpd_id          = aws_vpc.web_vpc.id
   tags = {
     git_commit           = "742bc0c9e5d95d29390e58bd9b6b90c77f93e9ca"
     git_file             = "ec2.tf"
@@ -120,7 +121,8 @@ EOF
   }
 }
 
-resource "aws_iam_role_policy" "example" {
+resource "aws_iam_
+role_policy" "example" {
   name = "example"
   role = aws_iam_role.example.id
 
@@ -251,6 +253,7 @@ resource "aws_security_group" "web-node" {
     "71.203.4.146/32"]
   }
   ingress {
+    description = "Enable ssh from single IP"
     from_port = 22
     to_port   = 22
     protocol  = "tcp"

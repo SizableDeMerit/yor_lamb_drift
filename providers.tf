@@ -13,8 +13,8 @@ provider "aws" {
 #   alias      = "plain_text_access_keys_provider"
 #   region     = "us-west-1"
 #   # EXAMPLE FOR NO HARD CODED SECRETS (NOT REAL SECRETS)
-#   # access_key = "AKIAIOSFODNN7EXAMPLE"
-#   # secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+#   # access_key = "REMOVED"
+#   # secret_key = "REMOVED"
 # }
 
 # terraform {
