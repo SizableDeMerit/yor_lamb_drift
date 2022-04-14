@@ -120,7 +120,8 @@ EOF
   }
 }
 
-resource "aws_iam_role_policy" "example" {
+resource "aws_iam_
+role_policy" "example" {
   name = "example"
   role = aws_iam_role.example.id
 
@@ -251,6 +252,7 @@ resource "aws_security_group" "web-node" {
     "71.203.4.146/32"]
   }
   ingress {
+    description = "Enable ssh from single IP"
     from_port = 22
     to_port   = 22
     protocol  = "tcp"
