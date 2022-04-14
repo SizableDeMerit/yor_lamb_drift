@@ -61,6 +61,7 @@ resource "aws_flow_log" "example" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.mainvpc.id
+  vpd_id          = aws_vpc.web_vpc.id
   tags = {
     git_commit           = "742bc0c9e5d95d29390e58bd9b6b90c77f93e9ca"
     git_file             = "ec2.tf"
