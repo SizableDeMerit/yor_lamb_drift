@@ -323,7 +323,8 @@ resource "aws_subnet" "web_subnet2" {
   vpc_id                  = aws_vpc.web_vpc.id
   cidr_block              = "172.16.11.0/24"
   availability_zone       = "${var.region}b"
-  map_public_ip_on_launch = true
+  # FIXING checkov:skip=BC_AWS_NETWORKING_53: ENSURE SUBNETS DO NOT ASSIGN PUBLIC ADDRESS
+  map_public_ip_on_launch = false
 
   tags = merge({
     Name = "${local.resource_prefix.value}-subnet2"
