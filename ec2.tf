@@ -13,7 +13,7 @@ resource "aws_vpc" "mainvpc" {
   # and again
   cidr_block = "10.1.0.0/16"
   tags = {
-    Name                 = "Main VPC"
+    Name                 = "For Yor Main VPC"
     git_commit           = "55320aa2a5edff0aa8e18b0f749d0c18ba3d1fa1"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 20:20:06"
@@ -61,8 +61,8 @@ resource "aws_flow_log" "example" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.mainvpc.id
-  vpd_id          = aws_vpc.web_vpc.id
   tags = {
+    Name                 = "For Yor Flow Log Example"
     git_commit           = "742bc0c9e5d95d29390e58bd9b6b90c77f93e9ca"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 20:33:01"
@@ -75,16 +75,15 @@ resource "aws_flow_log" "example" {
 }
 
 resource "aws_cloudwatch_log_group" "example" {
-  # checkov:skip=BC_AWS_LOGGING_13: ENSURE CLOUD WATCH LOG GROUP SPECIFIES RETENTION DAYS
-  # checkov:skip=BC_AWS_GENERAL_85: ENSURE CLOUD WATCH IS ENCRYPTED BY KMS 
-  name              = "example"
+
   retention_in_days = 90
   tags = {
-    git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
+    Name                 = "For Yor Cloud Watch"
+    git_commit           = "df590dcbaf509ba4a90b19b5f5a9ba3374d7bc62"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-05 15:05:30"
-    git_last_modified_by = "102994153+SizableDeMerit@users.noreply.github.com"
-    git_modifiers        = "102994153+SizableDeMerit"
+    git_last_modified_at = "2022-04-14 19:17:47"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "340e0bcc-464f-41b7-9cee-aab589091cde"
@@ -92,7 +91,6 @@ resource "aws_cloudwatch_log_group" "example" {
 }
 
 resource "aws_iam_role" "example" {
-  name = "example"
 
   assume_role_policy = <<EOF
 {
@@ -110,6 +108,7 @@ resource "aws_iam_role" "example" {
 }
 EOF
   tags = {
+    Name                 = "For Yor IAM Role"
     git_commit           = "95462415bf093a3e8578bb4007ab377160edcda5"
     git_file             = "ec2.tf"
     git_last_modified_at = "2022-04-05 15:05:30"
@@ -121,8 +120,7 @@ EOF
   }
 }
 
-resource "aws_iam_
-role_policy" "example" {
+resource "aws_iam_role_policy" "example" {
   name = "example"
   role = aws_iam_role.example.id
 
@@ -147,13 +145,13 @@ EOF
 }
 
 
-
-
 resource "aws_instance" "web_host" {
+  # checkov:skip=BC_AWS_GENERAL_68: ADD REASON
+  # SUPPRESSING checkov:skip=BC_AWS_LOGGING_26: DEV ENVIRONMENT COST CONTROL
   # checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
-  instance_type = "t2.nano"
+  instance_type = "t2.micro"
   root_block_device {
     encrypted = true
   }
@@ -179,12 +177,13 @@ export AWS_DEFAULT_REGION=us-west-2
 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
 EOF
 
-  monitoring    = true
-  ebs_optimized = true
+  # monitoring    = true
+  # ebs_optimized = true
   tags = {
-    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
+    Name                 = "For Yor - Web Host "
+    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_at = "2022-04-18 18:00:39"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -203,6 +202,7 @@ resource "aws_ebs_volume" "web_host_storage" {
 
   encrypted = true
   tags = {
+    Name                 = "For Yor EBS Volume"
     yor_trace            = "77594094-7748-4832-a133-f11d446a6bb0"
     git_commit           = "e27b3a95d72a16b9d1e487f08629cfc996273652"
     git_file             = "ec2.tf"
@@ -222,11 +222,11 @@ resource "aws_ebs_snapshot" "example_snapshot" {
   tags = merge({
     Name = "${local.resource_prefix.value}-ebs-snapshot"
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "5c8713f9c67a2ebf8f8486683de227b7ceb384ca"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-14 16:27:50"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c1008080-ec2f-4512-a0d0-2e9330aa58f0"
@@ -237,7 +237,7 @@ resource "aws_volume_attachment" "ebs_att" {
   device_name = "/dev/sdh"
   volume_id   = "${aws_ebs_volume.web_host_storage.id}"
   instance_id = "${aws_instance.web_host.id}"
-# }
+}
 
 resource "aws_security_group" "web-node" {
   # security group is open to the world in SSH port
@@ -254,9 +254,9 @@ resource "aws_security_group" "web-node" {
   }
   ingress {
     description = "Enable ssh from single IP"
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
     cidr_blocks = [
     "71.203.4.146/32"]
   }
@@ -269,9 +269,9 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "a700514703b4ae366ac293e65994a76589c57aaf"
+    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 20:09:09"
+    git_last_modified_at = "2022-04-18 18:00:39"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -299,17 +299,16 @@ resource "aws_vpc" "web_vpc" {
 }
 
 resource "aws_subnet" "web_subnet" {
-  vpc_id                  = aws_vpc.web_vpc.id
-  cidr_block              = "172.16.10.0/24"
-  availability_zone       = "${var.region}"
-  map_public_ip_on_launch = true
+  vpc_id            = aws_vpc.web_vpc.id
+  cidr_block        = "172.16.10.0/24"
+  availability_zone = "${var.region}a"
 
   tags = merge({
     Name = "${local.resource_prefix.value}-subnet"
     }, {
-    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
+    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-13 20:03:56"
+    git_last_modified_at = "2022-04-18 18:00:39"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -318,25 +317,27 @@ resource "aws_subnet" "web_subnet" {
   })
 }
 
-# resource "aws_subnet" "web_subnet2" {
-#   vpc_id                  = aws_vpc.web_vpc.id
-#   cidr_block              = "172.16.11.0/24"
-#   availability_zone       = "${var.region}b"
-#   map_public_ip_on_launch = true
 
-#   tags = merge({
-#     Name = "${local.resource_prefix.value}-subnet2"
-#     }, {
-#     git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 19:16:54"
-#     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-#     git_modifiers        = "97243784+mouth-calcite"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#     yor_trace            = "224af03a-00e0-4981-be30-14965833c2db"
-#   })
-# }
+resource "aws_subnet" "web_subnet2" {
+  vpc_id            = aws_vpc.web_vpc.id
+  cidr_block        = "172.16.11.0/24"
+  availability_zone = "${var.region}b"
+  # FIXING checkov:skip=BC_AWS_NETWORKING_53: ENSURE SUBNETS DO NOT ASSIGN PUBLIC ADDRESS
+  map_public_ip_on_launch = false
+
+  tags = merge({
+    Name = "${local.resource_prefix.value}-subnet2"
+    }, {
+    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-18 18:00:39"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "224af03a-00e0-4981-be30-14965833c2db"
+  })
+}
 
 
 # resource "aws_internet_gateway" "web_igw" {
