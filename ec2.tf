@@ -146,9 +146,6 @@ EOF
 
 
 resource "aws_instance" "web_host" {
-  # checkov:skip=BC_AWS_GENERAL_68: ADD REASON
-  # SUPPRESSING checkov:skip=BC_AWS_LOGGING_26: DEV ENVIRONMENT COST CONTROL
-  # checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
   instance_type = "t2.micro"
@@ -240,7 +237,7 @@ resource "aws_volume_attachment" "ebs_att" {
 }
 
 resource "aws_security_group" "web-node" {
-  # security group is open to the world in SSH port
+  # FIXED security group is open to the world in SSH port
   name        = "${local.resource_prefix.value}-sg"
   description = "${local.resource_prefix.value} Security Group"
   vpc_id      = aws_vpc.web_vpc.id
