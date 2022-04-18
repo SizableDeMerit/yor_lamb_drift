@@ -148,8 +148,6 @@ EOF
 }
 
 
-
-
 resource "aws_instance" "web_host" {
   # checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
   # ec2 have plain text secrets in user data
@@ -321,25 +319,25 @@ resource "aws_subnet" "web_subnet" {
 }
 
 
-# resource "aws_subnet" "web_subnet2" {
-#   vpc_id                  = aws_vpc.web_vpc.id
-#   cidr_block              = "172.16.11.0/24"
-#   availability_zone       = "${var.region}b"
-#   map_public_ip_on_launch = true
+resource "aws_subnet" "web_subnet2" {
+  vpc_id                  = aws_vpc.web_vpc.id
+  cidr_block              = "172.16.11.0/24"
+  availability_zone       = "${var.region}b"
+  map_public_ip_on_launch = true
 
-#   tags = merge({
-#     Name = "${local.resource_prefix.value}-subnet2"
-#     }, {
-#     git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 19:16:54"
-#     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-#     git_modifiers        = "97243784+mouth-calcite"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#     yor_trace            = "224af03a-00e0-4981-be30-14965833c2db"
-#   })
-# }
+  tags = merge({
+    Name = "${local.resource_prefix.value}-subnet2"
+    }, {
+    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 19:16:54"
+    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
+    git_modifiers        = "97243784+mouth-calcite"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "224af03a-00e0-4981-be30-14965833c2db"
+  })
+}
 
 
 # resource "aws_internet_gateway" "web_igw" {
