@@ -181,9 +181,9 @@ EOF
   # ebs_optimized = true
   tags = {
     Name                 = "For Yor - Web Host "
-    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
+    git_commit           = "9fbe935a3fd7004a758b70466b9672a6516653fa"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-18 18:00:39"
+    git_last_modified_at = "2022-04-18 17:44:43"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -269,9 +269,9 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
+    git_commit           = "2a61f92651288b54413e63558fdae67d32139a58"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-18 18:00:39"
+    git_last_modified_at = "2022-04-14 16:19:52"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -306,9 +306,9 @@ resource "aws_subnet" "web_subnet" {
   tags = merge({
     Name = "${local.resource_prefix.value}-subnet"
     }, {
-    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
+    git_commit           = "69f7acfa854688b5654e58396c9d5b55795fb058"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-18 18:00:39"
+    git_last_modified_at = "2022-04-13 20:03:56"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -328,9 +328,9 @@ resource "aws_subnet" "web_subnet2" {
   tags = merge({
     Name = "${local.resource_prefix.value}-subnet2"
     }, {
-    git_commit           = "782e5872421826f756b79d7b760e80d7cdfcf49f"
+    git_commit           = "661ff137e9e141aafb8ee354e552354164d22ce5"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-18 18:00:39"
+    git_last_modified_at = "2022-04-18 17:38:37"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
