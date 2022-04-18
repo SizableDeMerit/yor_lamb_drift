@@ -61,7 +61,6 @@ resource "aws_flow_log" "example" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.mainvpc.id
-  #vpd_id          = aws_vpc.web_vpc.id
   tags = {
     Name                = "For Yor Flow Log Example"
     git_commit           = "742bc0c9e5d95d29390e58bd9b6b90c77f93e9ca"
@@ -153,14 +152,14 @@ resource "aws_instance" "web_host" {
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
   instance_type = "t2.micro"
-  # root_block_device {
-  #   encrypted = true
-  # }
+  root_block_device {
+    encrypted = true
+  }
 
-  # metadata_options {
-  #   http_endpoint = "enabled"
-  #   http_tokens   = "required"
-  # }
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 
   vpc_security_group_ids = [
   "${aws_security_group.web-node.id}"]
