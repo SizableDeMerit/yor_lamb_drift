@@ -75,9 +75,7 @@ resource "aws_flow_log" "example" {
 }
 
 resource "aws_cloudwatch_log_group" "example" {
-  # checkov:skip=BC_AWS_LOGGING_13: ENSURE CLOUD WATCH LOG GROUP SPECIFIES RETENTION DAYS
-  # checkov:skip=BC_AWS_GENERAL_85: ENSURE CLOUD WATCH IS ENCRYPTED BY KMS 
-  
+
   retention_in_days = 90
   tags = {
     Name                 = "For Yor Cloud Watch"
@@ -148,6 +146,8 @@ EOF
 
 
 resource "aws_instance" "web_host" {
+	# checkov:skip=BC_AWS_GENERAL_68: ADD REASON
+	# SUPPRESSING checkov:skip=BC_AWS_LOGGING_26: DEV ENVIRONMENT COST CONTROL
   # checkov:skip=BC_AWS_GENERAL_13: Ensure Instances and Launch configurations use encrypted EBS volumes
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
