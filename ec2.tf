@@ -74,6 +74,7 @@ resource "aws_flow_log" "example" {
   }
 }
 
+
 resource "aws_cloudwatch_log_group" "example" {
 
   retention_in_days = 90
@@ -243,6 +244,7 @@ resource "aws_security_group" "web-node" {
   vpc_id      = aws_vpc.web_vpc.id
 
   ingress {
+    description = "this rule allows port 80 from single IP" 
     from_port = 80
     to_port   = 80
     protocol  = "tcp"
@@ -294,6 +296,19 @@ resource "aws_vpc" "web_vpc" {
     yor_trace            = "9bf2359b-952e-4570-9595-52eba4c20473"
   })
 }
+
+resource "aws_flow_log" "example2" {
+  iam_role_arn    = aws_iam_role.example.arn
+  log_destination = aws_cloudwatch_log_group.example.arn
+  traffic_type    = "ALL"
+  vpc_id          = aws_vpc.web_vpc.id
+}
+
+
+resource "aws_default_security_group" "web_vpc" {
+  vpc_id = aws_vpc.web_vpc.id
+}
+
 
 resource "aws_subnet" "web_subnet" {
   vpc_id            = aws_vpc.web_vpc.id
