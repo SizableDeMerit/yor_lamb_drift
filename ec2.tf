@@ -244,10 +244,10 @@ resource "aws_security_group" "web-node" {
   vpc_id      = aws_vpc.web_vpc.id
 
   ingress {
-    description = "this rule allows port 80 from single IP" 
-    from_port = 80
-    to_port   = 80
-    protocol  = "tcp"
+    description = "this rule allows port 80 from single IP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
     cidr_blocks = [
     "71.203.4.146/32"]
   }
@@ -268,9 +268,9 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "7d9d8778a56d4cf71d311208e43431b0f51447c0"
+    git_commit           = "fc59506f55c6c483e377ddce83ab9574e9dccf89"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-18 19:51:03"
+    git_last_modified_at = "2022-04-19 14:38:33"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -302,11 +302,31 @@ resource "aws_flow_log" "example2" {
   log_destination = aws_cloudwatch_log_group.example.arn
   traffic_type    = "ALL"
   vpc_id          = aws_vpc.web_vpc.id
+  tags = {
+    git_commit           = "fc59506f55c6c483e377ddce83ab9574e9dccf89"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-19 14:38:33"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "sized-demerit-0u"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "c3ecd01f-821b-46be-b3d7-5494ad54c218"
+  }
 }
 
 
 resource "aws_default_security_group" "web_vpc" {
   vpc_id = aws_vpc.web_vpc.id
+  tags = {
+    git_commit           = "fc59506f55c6c483e377ddce83ab9574e9dccf89"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-19 14:38:33"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "sized-demerit-0u"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "84d0269c-0341-4021-a960-907d7e8ac554"
+  }
 }
 
 
