@@ -261,17 +261,17 @@ resource "aws_security_group" "web-node" {
   }
   egress {
     description = "allows outbound access"
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = [
     "0.0.0.0/0"]
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "fc59506f55c6c483e377ddce83ab9574e9dccf89"
+    git_commit           = "f2cbd77c791d148d9d45ec3fb82c00dae2ccfb24"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-19 14:38:33"
+    git_last_modified_at = "2022-04-19 18:48:07"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
