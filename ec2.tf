@@ -260,6 +260,7 @@ resource "aws_security_group" "web-node" {
     "71.203.4.146/32"]
   }
   egress {
+    description = "allows outbound access"
     from_port = 0
     to_port   = 0
     protocol  = "-1"
