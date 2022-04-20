@@ -270,9 +270,9 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
+    git_commit           = "f2cbd77c791d148d9d45ec3fb82c00dae2ccfb24"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-20 17:20:55"
+    git_last_modified_at = "2022-04-19 18:48:07"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
