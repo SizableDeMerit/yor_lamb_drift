@@ -470,7 +470,7 @@ resource "aws_flow_log" "vpcflowlogs" {
 }
 
 resource "aws_s3_bucket" "flowbucket" {
-	# checkov:skip=BC_AWS_S3_16: COST
+  # checkov:skip=BC_AWS_S3_16: COST
   bucket        = "${local.resource_prefix.value}-flowlogs"
   force_destroy = true
 
@@ -478,9 +478,9 @@ resource "aws_s3_bucket" "flowbucket" {
     Name        = "${local.resource_prefix.value}-flowlogs"
     Environment = local.resource_prefix.value
     }, {
-    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
+    git_commit           = "c46e9683edac87e9866851d995a1a140c1d72862"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-20 17:20:55"
+    git_last_modified_at = "2022-04-20 17:41:23"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
