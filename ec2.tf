@@ -470,6 +470,7 @@ resource "aws_flow_log" "vpcflowlogs" {
 }
 
 resource "aws_s3_bucket" "flowbucket" {
+	# checkov:skip=BC_AWS_S3_16: COST
   bucket        = "${local.resource_prefix.value}-flowlogs"
   force_destroy = true
 
