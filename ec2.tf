@@ -193,6 +193,7 @@ EOF
 
 
 resource "aws_ebs_volume" "web_host_storage" {
+	# checkov:skip=BC_AWS_GENERAL_109: SEVERITY = LOW
   # unencrypted volume
   availability_zone = "${var.region}a"
   #encrypted         = false  # Setting this causes the volume to be recreated on apply 
@@ -428,64 +429,64 @@ resource "aws_subnet" "web_subnet2" {
 # }
 
 
-# resource "aws_network_interface" "web-eni" {
-#   subnet_id   = aws_subnet.web_subnet.id
-#   private_ips = ["172.16.10.100"]
+resource "aws_network_interface" "web-eni" {
+  subnet_id   = aws_subnet.web_subnet.id
+  private_ips = ["172.16.10.100"]
 
-#   tags = merge({
-#     Name = "${local.resource_prefix.value}-primary_network_interface"
-#     }, {
-#     git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 19:16:54"
-#     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-#     git_modifiers        = "97243784+mouth-calcite"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#     yor_trace            = "7e2ffea8-739f-467d-b57b-53cbc0d7ccbe"
-#   })
-# }
+  tags = merge({
+    Name = "${local.resource_prefix.value}-primary_network_interface"
+    }, {
+    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 19:16:54"
+    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
+    git_modifiers        = "97243784+mouth-calcite"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "7e2ffea8-739f-467d-b57b-53cbc0d7ccbe"
+  })
+}
 
-# # VPC Flow Logs to S3
-# resource "aws_flow_log" "vpcflowlogs" {
-#   log_destination      = aws_s3_bucket.flowbucket.arn
-#   log_destination_type = "s3"
-#   traffic_type         = "ALL"
-#   vpc_id               = aws_vpc.web_vpc.id
+# VPC Flow Logs to S3
+resource "aws_flow_log" "vpcflowlogs" {
+  log_destination      = aws_s3_bucket.flowbucket.arn
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.web_vpc.id
 
-#   tags = merge({
-#     Name        = "${local.resource_prefix.value}-flowlogs"
-#     Environment = local.resource_prefix.value
-#     }, {
-#     git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 19:16:54"
-#     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-#     git_modifiers        = "97243784+mouth-calcite"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#     yor_trace            = "6808d4b7-45bc-4d1d-9523-96757a3add3a"
-#   })
-# }
+  tags = merge({
+    Name        = "${local.resource_prefix.value}-flowlogs"
+    Environment = local.resource_prefix.value
+    }, {
+    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 19:16:54"
+    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
+    git_modifiers        = "97243784+mouth-calcite"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "6808d4b7-45bc-4d1d-9523-96757a3add3a"
+  })
+}
 
-# resource "aws_s3_bucket" "flowbucket" {
-#   bucket        = "${local.resource_prefix.value}-flowlogs"
-#   force_destroy = true
+resource "aws_s3_bucket" "flowbucket" {
+  bucket        = "${local.resource_prefix.value}-flowlogs"
+  force_destroy = true
 
-#   tags = merge({
-#     Name        = "${local.resource_prefix.value}-flowlogs"
-#     Environment = local.resource_prefix.value
-#     }, {
-#     git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
-#     git_file             = "ec2.tf"
-#     git_last_modified_at = "2022-04-04 19:16:54"
-#     git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-#     git_modifiers        = "97243784+mouth-calcite"
-#     git_org              = "SizableDeMerit"
-#     git_repo             = "yor_lamb_drift"
-#     yor_trace            = "f058838a-b1e0-4383-b965-7e06e987ffb1"
-#   })
-# }
+  tags = merge({
+    Name        = "${local.resource_prefix.value}-flowlogs"
+    Environment = local.resource_prefix.value
+    }, {
+    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_file             = "ec2.tf"
+    git_last_modified_at = "2022-04-04 19:16:54"
+    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
+    git_modifiers        = "97243784+mouth-calcite"
+    git_org              = "SizableDeMerit"
+    git_repo             = "yor_lamb_drift"
+    yor_trace            = "f058838a-b1e0-4383-b965-7e06e987ffb1"
+  })
+}
 
 # output "ec2_public_dns" {
 #   description = "Web Host Public DNS name"
