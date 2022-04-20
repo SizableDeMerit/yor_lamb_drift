@@ -193,7 +193,7 @@ EOF
 
 
 resource "aws_ebs_volume" "web_host_storage" {
-	# checkov:skip=BC_AWS_GENERAL_109: SEVERITY = LOW
+  # checkov:skip=BC_AWS_GENERAL_109: SEVERITY = LOW
   # unencrypted volume
   availability_zone = "${var.region}a"
   #encrypted         = false  # Setting this causes the volume to be recreated on apply 
@@ -203,9 +203,9 @@ resource "aws_ebs_volume" "web_host_storage" {
   tags = {
     Name                 = "For Yor EBS Volume"
     yor_trace            = "77594094-7748-4832-a133-f11d446a6bb0"
-    git_commit           = "e27b3a95d72a16b9d1e487f08629cfc996273652"
+    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 20:08:56"
+    git_last_modified_at = "2022-04-20 17:20:55"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -270,9 +270,9 @@ resource "aws_security_group" "web-node" {
   }
   depends_on = [aws_vpc.web_vpc]
   tags = {
-    git_commit           = "f2cbd77c791d148d9d45ec3fb82c00dae2ccfb24"
+    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-19 18:48:07"
+    git_last_modified_at = "2022-04-20 17:20:55"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
@@ -436,11 +436,11 @@ resource "aws_network_interface" "web-eni" {
   tags = merge({
     Name = "${local.resource_prefix.value}-primary_network_interface"
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-20 17:20:55"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "7e2ffea8-739f-467d-b57b-53cbc0d7ccbe"
@@ -458,11 +458,11 @@ resource "aws_flow_log" "vpcflowlogs" {
     Name        = "${local.resource_prefix.value}-flowlogs"
     Environment = local.resource_prefix.value
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-20 17:20:55"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "6808d4b7-45bc-4d1d-9523-96757a3add3a"
@@ -477,11 +477,11 @@ resource "aws_s3_bucket" "flowbucket" {
     Name        = "${local.resource_prefix.value}-flowlogs"
     Environment = local.resource_prefix.value
     }, {
-    git_commit           = "930a419758c2d9492a45bcb23b99436712fa80e8"
+    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-04 19:16:54"
-    git_last_modified_by = "97243784+mouth-calcite@users.noreply.github.com"
-    git_modifiers        = "97243784+mouth-calcite"
+    git_last_modified_at = "2022-04-20 17:20:55"
+    git_last_modified_by = "sized-demerit-0u@icloud.com"
+    git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "f058838a-b1e0-4383-b965-7e06e987ffb1"
