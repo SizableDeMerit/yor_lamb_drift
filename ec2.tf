@@ -478,9 +478,9 @@ resource "aws_s3_bucket" "flowbucket" {
     Name        = "${local.resource_prefix.value}-flowlogs"
     Environment = local.resource_prefix.value
     }, {
-    git_commit           = "46fe23ff428c1122dcc24b3b5db5abf06ba1fb74"
+    git_commit           = "41ba27648dac3e42ebc840a7b472cf8e2d4337d0"
     git_file             = "ec2.tf"
-    git_last_modified_at = "2022-04-20 17:45:20"
+    git_last_modified_at = "2022-04-20 17:20:55"
     git_last_modified_by = "sized-demerit-0u@icloud.com"
     git_modifiers        = "102994153+SizableDeMerit/sized-demerit-0u"
     git_org              = "SizableDeMerit"
