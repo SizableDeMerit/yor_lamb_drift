@@ -22,6 +22,7 @@ resource "aws_vpc" "mainvpc" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "cd30b5ba-0c51-4ff8-9439-c40b57549179"
+    team                 = "cloud_security"
   }
 }
 
@@ -52,6 +53,7 @@ resource "aws_default_security_group" "default" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "8d4b96bd-a7ba-436b-8e8c-1bdb3cc4dbfc"
+    team                 = "cloud_security"
   }
 }
 
@@ -71,6 +73,7 @@ resource "aws_flow_log" "example" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c26b7257-d7b4-4288-915d-1987711721a3"
+    team                 = "cloud_security"
   }
 }
 
@@ -88,6 +91,7 @@ resource "aws_cloudwatch_log_group" "example" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "340e0bcc-464f-41b7-9cee-aab589091cde"
+    team                 = "cloud_security"
   }
 }
 
@@ -118,6 +122,7 @@ EOF
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "e6cb8435-1183-44d6-aaf7-01a8786bbde6"
+    team                 = "cloud_security"
   }
 }
 
@@ -187,6 +192,7 @@ EOF
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "ee37c4ed-d943-446e-9f53-7022a8fd48b0"
+    team                 = "cloud_security"
   }
 }
 
@@ -210,6 +216,7 @@ resource "aws_ebs_volume" "web_host_storage" {
     git_modifiers        = "97243784+mouth-calcite/sized-demerit-0u"
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
+    team                 = "cloud_security"
   }
 }
 
@@ -229,6 +236,8 @@ resource "aws_ebs_snapshot" "example_snapshot" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c1008080-ec2f-4512-a0d0-2e9330aa58f0"
+    }, {
+    team = "cloud_security"
   })
 }
 
@@ -278,6 +287,7 @@ resource "aws_security_group" "web-node" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "b7af1b40-64eb-4519-a1a0-ab198db4b193"
+    team                 = "cloud_security"
   }
 }
 
@@ -296,6 +306,8 @@ resource "aws_vpc" "web_vpc" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "9bf2359b-952e-4570-9595-52eba4c20473"
+    }, {
+    team = "cloud_security"
   })
 }
 
@@ -313,6 +325,7 @@ resource "aws_flow_log" "example2" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "c3ecd01f-821b-46be-b3d7-5494ad54c218"
+    team                 = "cloud_security"
   }
 }
 
@@ -328,6 +341,7 @@ resource "aws_default_security_group" "web_vpc" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "84d0269c-0341-4021-a960-907d7e8ac554"
+    team                 = "cloud_security"
   }
 }
 
@@ -348,6 +362,8 @@ resource "aws_subnet" "web_subnet" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "0345f650-d280-4ca8-86c9-c71c38c0eda8"
+    }, {
+    team = "cloud_security"
   })
 }
 
@@ -370,6 +386,8 @@ resource "aws_subnet" "web_subnet2" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "224af03a-00e0-4981-be30-14965833c2db"
+    }, {
+    team = "cloud_security"
   })
 }
 
@@ -444,6 +462,8 @@ resource "aws_network_interface" "web-eni" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "7e2ffea8-739f-467d-b57b-53cbc0d7ccbe"
+    }, {
+    team = "cloud_security"
   })
 }
 
@@ -466,6 +486,8 @@ resource "aws_flow_log" "vpcflowlogs" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "6808d4b7-45bc-4d1d-9523-96757a3add3a"
+    }, {
+    team = "cloud_security"
   })
 }
 
@@ -486,6 +508,8 @@ resource "aws_s3_bucket" "flowbucket" {
     git_org              = "SizableDeMerit"
     git_repo             = "yor_lamb_drift"
     yor_trace            = "f058838a-b1e0-4383-b965-7e06e987ffb1"
+    }, {
+    team = "cloud_security"
   })
 }
 
